@@ -2,11 +2,14 @@ const express = require('express');
 
 const ClienteController = require('./controllers/ClienteController');
 const OrcamentoController = require('./controllers/OrcamentoController');
-const LoginController = require('./controllers/LoginController');
+const ColaboradorController = require('./controllers/ColaboradorController');
 
 const routes = express.Router();
 
-routes.post('/login', LoginController.SessionLogar);
+routes.post('/colaborador/logOn', ColaboradorController.SessaoLogar);
+routes.post('/colaborador/', ColaboradorController.CriarColaborador);
+routes.get('/colaborador', ColaboradorController.GetColaboradorForAll);
+routes.delete('/colaborador/:id', ColaboradorController.DeletarColaborador);
 
 routes.get('/cliente', ClienteController.GetClientesForAll);
 routes.post('/cliente', ClienteController.CriarCliente);
