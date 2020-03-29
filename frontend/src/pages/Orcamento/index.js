@@ -5,18 +5,18 @@ import { FiArrowLeft } from 'react-icons/fi';
 import './style.css';
 import logoImg from '../../assets/carro-login-black.png';
 
-export default function CadastroColaborador() {
+export default function CadastroOrcamento() {
     return (
-            <div className="colaborador-container">
+            <div className="orcamento-container">
                 <div className="content">
                     <section>
                         <img src={logoImg} alt="SGM" />
 
-                        <h1>Cadastro de Colaboradores</h1>
-                        <p>Faça seu Cadastro para conseguir acessar ao sistem de Gerenciamento Mecânica.</p>
+                        <h1>Cadastro de Orçamento</h1>
+                        <p>Aqui você escolhe todos os itens para seu cliente</p>
 
-                        <Link className="back-link" to="/">
-                            <FiArrowLeft size={16} color="#E02041" />Efetuar Login
+                        <Link className="back-link" to="/principal">
+                            <FiArrowLeft size={16} color="#E02041" />Voltar para página principal
                         </Link>
                     </section>
                     <form>
@@ -36,7 +36,7 @@ export default function CadastroColaborador() {
                         <div className="input-group">
                                 <p>Usuário Ativo?</p>
                                 <label for="AtivoSim">Sim</label>
-                                <input type="radio" id="AtivoSim" name="StatusColaborador" value="1"/>
+                                <input type="radio" id="AtivoSim" name="Statusorcamento" value="1"/>
                                 <label for="AtivoNao">Não</label>
                                 <input type="radio" id="AtivoNao" name="StatusColaborador" value="0"/>
                         </div>

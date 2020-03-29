@@ -3,21 +3,21 @@ import { Link } from 'react-router-dom';
 import { FiLogIn } from 'react-icons/fi';
 
 import './style.css';
-import sgmImg from '../../assets/heroes.png';
-import logoImg from '../../assets/logo.svg';
+import sgmImg from '../../assets/login.jpg';
+import logoImg from '../../assets/carro-login-black.png';
 
 export default function Logon() {
     return (
         <div className="logon-container">
             <section className="form">
                 <img src={logoImg} alt="logotipo SGM"/>
-
                 <form>
-                    <h1>Faça seu Logon</h1>
-                    <input placeholder="Sua ID"></input>
+                    <h1>Faça seu Login</h1>
+                    <input placeholder="Digite seu Login"></input>
+                    <input placeholder="Digite sua Senha"></input>
                     <button className="button" type="submit">Entrar</button>
-
-                    <Link className="back-link" to="/colaborador">
+                    
+                    <Link className="back-link" to="/colaborador/novo">
                         <FiLogIn size={16} color="#E02041" />Não tenho cadastro
                     </Link>
                 </form>

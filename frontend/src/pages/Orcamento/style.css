@@ -1,4 +1,4 @@
-.colaborador-container {
+.orcamento-container {
     width:  100%;
     max-width: 1120px;
     height: 100hv;
@@ -9,7 +9,7 @@
     justify-content: center;
 }
 
-.colaborador-container .content {
+.orcamento-container .content {
     width: 100%;
     padding: 96px;
     background: #f0f0f5;
@@ -21,52 +21,32 @@
     align-items: center;
 }
 
-.colaborador-container section {
+.orcamento-container section {
     width: 100%;
     max-width: 380px;
 }
 
-.colaborador-container section h1 {
+.orcamento-container section h1 {
     margin: 64px 0 32px;
     font-size: 32px;
 }
 
-.colaborador-container section p {
+.orcamento-container section p {
     font-size: 18px;
     color: #737380;
     line-height: 32px;
 }
 
-.colaborador-container form {
+.orcamento-container form {
     width: 100%;
     max-width: 450px;
 }
 
-.colaborador-container form input {
+.orcamento-container form input {
     margin-top: 10px;
 }
 
-.colaborador-container form .input-group {
-    display: flex;
-    font-size: 18px;
-    color: #737380;
-    line-height: 32px;
-}
-
-.colaborador-container form .input-group input + input {
-    margin-left: 8px;
-}
-
-.colaborador-container form .input-group label {
-    padding-top: 25px;
-    padding-left: 40px;
-}
-
-.colaborador-container form .input-group p {
-    padding-top: 5px;
-}
-
-.colaborador-container form .label-Datas {
+.orcamento-container form .label-Datas {
     padding-top: 25px;
     font-size: 18px;
     color: #807374;
