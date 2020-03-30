@@ -20,26 +20,10 @@ export default function CadastroOrcamento() {
                         </Link>
                     </section>
                     <form>
-                        <input type="text" placeholder="Usuário" />
-                        <input type="text" placeholder="Nome" />
-                        <input type="text" placeholder="Nome Completo" />
-                        <input type="text" placeholder="CPF" />
-                        <label className="label-Datas">Data de Nascimento</label>
-                        <input className="input-Datas" type="date" placeholder="Data de Nascimento" />
-                        <input type="email" placeholder="E-mail Pessoal" />
-                        <input type="email" placeholder="E-mail Profissional" />
-                        <label className="label-Datas">Data de Admissão</label>
-                        <input type="date" placeholder="Admissão" />
-                        <label className="label-Datas">Data de Demissão</label>
-                        <input type="date" placeholder="Demissão" />
-                        
-                        <div className="input-group">
-                                <p>Usuário Ativo?</p>
-                                <label for="AtivoSim">Sim</label>
-                                <input type="radio" id="AtivoSim" name="Statusorcamento" value="1"/>
-                                <label for="AtivoNao">Não</label>
-                                <input type="radio" id="AtivoNao" name="StatusColaborador" value="0"/>
-                        </div>
+                        <input type="text" placeholder="Pesquisa de Cliente" />
+                        <input type="text" placeholder="Mão de Obra" />
+                        <input type="text" placeholder="Produtos/Peças" />
+                        <input type="text" placeholder="Observações" />
                         <button className="button" type="submit">Cadastrar</button>
                     </form>
                 </div>
