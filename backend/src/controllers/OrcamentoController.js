@@ -10,18 +10,28 @@ module.exports = {
     },
     async CriarOrcamento(request, response) {
         const {
-            clienteId, 
-            descricao,
-            observacoes, 
-            valorOrcamento
+            ClienteId, 
+            Descricao,
+            ValorAdicional, 
+            PercentualDesconto,
+            ValorDesconto,
+            ValorTotal,
+            Status,
+            Ativo,
+            DataCadastro
          } = request.body;
  
      const [Id] = await connection('Orcamento')
-     .insert({
-        clienteId, 
-        descricao, 
-        observacoes, 
-        valorOrcamento
+        .insert({
+            ClienteId, 
+            Descricao,
+            ValorAdicional, 
+            PercentualDesconto,
+            ValorDesconto,
+            ValorTotal,
+            Status,
+            Ativo,
+            DataCadastro
      })
  
      return response.json({ Id });
@@ -29,7 +39,7 @@ module.exports = {
     async DeletarOrcamento(request, response) {
         const { id } = request.params;
         
-        await connection('Orcamento').where('id', id).delete();
+        await connection('Orcamento').where('OrcamentoId', id).delete();
 
         return response.status(204).send();
     }

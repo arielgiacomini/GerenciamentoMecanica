@@ -5,7 +5,6 @@ module.exports = {
     async GetClientesForAll(request, response) {
         const { page = 1} = request.query;
 
-
         const clientes = await connection('Cliente')
         .limit(5)
         .offset(( page - 1 ) * 5)
@@ -19,34 +18,50 @@ module.exports = {
     },
     async CriarCliente(request, response) {
         const {
-            nome, 
-            sobrenome, 
-            preferenciaNome, 
-            email, 
-            telefoneCelular, 
-            telefoneResidencial, 
-            logradouroCEP, 
-            logradouro, 
-            logradouroNumero, 
-            logradouroBairro, 
-            logradouroCidade, 
-            logradouroUF
+            NomeCliente,
+            Apelido,
+            DocumentoCliente,
+            Sexo,
+            EstadoCivil,
+            DataNascimento,
+            Email,
+            TelefoneFixo,
+            TelefoneCelular,
+            TelefoneOutros,
+            LogradouroCEP,
+            LogradouroNome,
+            LogradouroNumero,
+            LogradouroComplemento,
+            LogradouroMunicipio,
+            LogradouroBairro,
+            LogradouroUF,
+            RecebeNotificacoes,
+            ClienteAtivo,
+            DataCadastro
          } = request.body;
  
-     await connection('cliente')
+     await connection('Cliente')
      .insert({
-         nome, 
-         sobrenome, 
-         preferenciaNome, 
-         email, 
-         telefoneCelular, 
-         telefoneResidencial, 
-         logradouroCEP, 
-         logradouro, 
-         logradouroNumero, 
-         logradouroBairro, 
-         logradouroCidade, 
-         logradouroUF,
+        NomeCliente,
+        Apelido,
+        DocumentoCliente,
+        Sexo,
+        EstadoCivil,
+        DataNascimento,
+        Email,
+        TelefoneFixo,
+        TelefoneCelular,
+        TelefoneOutros,
+        LogradouroCEP,
+        LogradouroNome,
+        LogradouroNumero,
+        LogradouroComplemento,
+        LogradouroMunicipio,
+        LogradouroBairro,
+        LogradouroUF,
+        RecebeNotificacoes,
+        ClienteAtivo,
+        DataCadastro
      })
  
      return response.json({ preferenciaNome });
@@ -54,7 +69,7 @@ module.exports = {
     async DeletarCliente(request, response) {
         const { id } = request.params;
 
-     await connection('cliente').where('id', id).delete();
+     await connection('Cliente').where('ClienteId', id).delete();
  
      return response.status(204).send();
     } 
