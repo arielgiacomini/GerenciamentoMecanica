@@ -5,10 +5,7 @@ module.exports = {
   development: {
     client: 'sqlite3',
     connection: {
-      filename: './src/database/db.sqlite'
-    },
-    migrations: {
-      directory: './src/database/migrations'
+      filename: './src/database/SGL.db3'
     },
     useNullAsDefault: true,
   },
@@ -23,9 +20,6 @@ module.exports = {
     pool: {
       min: 2,
       max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
     }
   },
 
@@ -39,9 +33,6 @@ module.exports = {
     pool: {
       min: 2,
       max: 10
-    },
-    migrations: {
-      tableName: 'knex_migrations'
     }
   }
 
