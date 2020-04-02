@@ -164,79 +164,6 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Orcamento",
-			"item": [
-				{
-					"name": "Criar Orcamento",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"clienteId\": 1,\n\t\"descricao\": \"Arrumar Fiesta\",\n\t\"observacoes\": \"Precisa de Dinheiro\",\n\t\"valorOrcamento\": 3200\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:3333/orcamento",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3333",
-							"path": [
-								"orcamento"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Listar Todos",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3333/orcamento",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3333",
-							"path": [
-								"orcamento"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Excluir Orcamento",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3333/orcamento/2",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3333",
-							"path": [
-								"orcamento",
-								"2"
-							]
-						}
-					},
-					"response": []
-				}
-			],
-			"protocolProfileBehavior": {}
-		},
-		{
 			"name": "Colaborador",
 			"item": [
 				{
@@ -330,6 +257,298 @@
 							"path": [
 								"colaborador",
 								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "MaodeObra",
+			"item": [
+				{
+					"name": "Listar Todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/mao-de-obra",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"mao-de-obra"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar MaodeObra",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"MaodeObra\": \"TROCA DE FUZÍVEIS\",\r\n        \"Tipo\": \"MÉDIO ESFORÇO\",\r\n        \"Valor\": 24.99,\r\n        \"VigenciaInicial\": \"2020-04-02\",\r\n        \"VigenciaFinal\": \"2022-01-15\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/mao-de-obra",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"mao-de-obra"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir MaodeObra",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/mao-de-obra/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"mao-de-obra",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Orcamento",
+			"item": [
+				{
+					"name": "Criar Orcamento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"clienteId\": 1,\n\t\"descricao\": \"Arrumar Fiesta\",\n\t\"observacoes\": \"Precisa de Dinheiro\",\n\t\"valorOrcamento\": 3200\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/orcamento",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"orcamento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/orcamento",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"orcamento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir Orcamento",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/orcamento/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"orcamento",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "OrcamentoMaodeObra",
+			"item": [
+				{
+					"name": "Listar Todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/orcamento-mao-de-obra",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"orcamento-mao-de-obra"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar OrcamentoMaodeObra",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"OrcamentoId\": 5,\r\n        \"MaodeObraId\": 6\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/orcamento-mao-de-obra",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"orcamento-mao-de-obra"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir OrcamentoMaodeObra",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/orcamento-mao-de-obra/135",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"orcamento-mao-de-obra",
+								"135"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "OrcamentoPeca",
+			"item": [
+				{
+					"name": "Listar Todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/orcamento-peca",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"orcamento-peca"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar OrcamentoPeca",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"OrcamentoId\": 5,\r\n        \"PecaId\": 1\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3333/orcamento-peca",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"orcamento-peca"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir OrcamentoPeca",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3333/orcamento-peca/62",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3333",
+							"path": [
+								"orcamento-peca",
+								"62"
 							]
 						}
 					},
