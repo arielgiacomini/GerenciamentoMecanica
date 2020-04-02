@@ -2,38 +2,38 @@ const connection = require('../database/connection');
 
 module.exports = {
 
-    async GetOrcamentoMaodeObraForAll(request, response) {
+    async GetOrcamentoPecaForAll(request, response) {
         const { page = 1 } = request.query;
         
-        const orcamentos = await connection('OrcamentoMaodeObra')
+        const orcamentosPecas = await connection('OrcamentoPeca')
             .limit(5)
             .offset(( page - 1 ) * 5)
             .select('*');
 
-        const [contagem] = await connection('OrcamentoMaodeObra').count();
+        const [contagem] = await connection('OrcamentoPeca').count();
 
         response.header('X-Total-Count', contagem['count(*)']);
         
-        return response.json(orcamentos);
+        return response.json(orcamentosPecas);
     },
-    async CriarOrcamentoMaodeObra(request, response) {
+    async CriarOrcamentoPeca(request, response) {
         const {
             OrcamentoId, 
-            MaodeObraId
+            PecaId
          } = request.body;
  
-     const [Id] = await connection('OrcamentoMaodeObra')
+     const [Id] = await connection('OrcamentoPeca')
         .insert({
             OrcamentoId, 
-            MaodeObraId
+            PecaId
      })
  
      return response.json({ Id });
     },
-    async DeletarOrcamentoMaodeObra(request, response) {
+    async DeletarOrcamentoPeca(request, response) {
         const { id } = request.params;
         
-        await connection('OrcamentoMaodeObra').where('OrcamentoId', id).delete();
+        await connection('OrcamentoPeca').where('OrcamentoId', id).delete();
 
         return response.status(204).send();
     }
