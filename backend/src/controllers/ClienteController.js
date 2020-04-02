@@ -6,9 +6,9 @@ module.exports = {
         const { page = 1} = request.query;
 
         const clientes = await connection('Cliente')
-        .limit(5)
-        .offset(( page - 1 ) * 5)
-        .select('*');
+            .limit(5)
+            .offset(( page - 1 ) * 5)
+            .select('*');
 
         const [contagem] = await connection('Cliente').count();
 
@@ -69,8 +69,8 @@ module.exports = {
     async DeletarCliente(request, response) {
         const { id } = request.params;
 
-     await connection('Cliente').where('ClienteId', id).delete();
+        await connection('Cliente').where('ClienteId', id).delete();
  
-     return response.status(204).send();
+        return response.status(204).send();
     } 
 };
