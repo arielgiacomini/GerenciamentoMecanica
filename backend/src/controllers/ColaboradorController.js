@@ -6,7 +6,7 @@ module.exports = {
         const { preferenciaNome } = request.body;
 
         const loginCliente = await connection('Colaborador')
-        .where('NomePreferencial', preferenciaNome)
+        .where('Apelido', preferenciaNome)
         .select('Nome')
         .first();
 
@@ -25,32 +25,26 @@ module.exports = {
     },
     async CriarColaborador(request, response) {
         const {
-            usuario, 
-            nome,
-            nomeCompleto, 
-            nomePreferencial,
-            cpf,
-            dataNascimento,
-            emailPessoal,
-            emailProfissional,
-            dataAdmissao,
-            dataDemissao,
-            ativo
+            Usuario, 
+            Senha,
+            Nome, 
+            NomeCompleto,
+            Apelido,
+            CPF,
+            RG,
+            DataAdmissao
          } = request.body;
  
      const [Id] = await connection('Colaborador')
      .insert({
-        usuario, 
-        nome,
-        nomeCompleto, 
-        nomePreferencial,
-        cpf,
-        dataNascimento,
-        emailPessoal,
-        emailProfissional,
-        dataAdmissao,
-        dataDemissao,
-        ativo
+        Usuario, 
+        Senha,
+        Nome, 
+        NomeCompleto,
+        Apelido,
+        CPF,
+        RG,
+        DataAdmissao
      })
  
      return response.json({ Id });
@@ -58,7 +52,7 @@ module.exports = {
     async DeletarColaborador(request, response) {
         const { id } = request.params;
         
-        await connection('Colaborador').where('Id', id).delete();
+        await connection('Colaborador').where('ColaboradorId', id).delete();
 
         return response.status(204).send();
     }   
