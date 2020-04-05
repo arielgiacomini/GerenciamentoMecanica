@@ -2,21 +2,21 @@ const connection = require('../database/connection');
 
 module.exports = {
 
-    async GetOrcamentoForAll(request, response) {
+    async GetServicoForAll(request, response) {
         const { page = 1 } = request.query;
 
-        const orcamentos = await connection('Orcamento')
+        const Servicos = await connection('Servico')
             .limit(5)
             .offset(( page - 1 ) * 5)
             .select('*');
 
-        const [contagem] = await connection('Orcamento').count();
+        const [contagem] = await connection('Servico').count();
 
         response.header('X-Total-Count', contagem['count(*)']);
         
-        return response.json(orcamentos);
+        return response.json(Servicos);
     },
-    async CriarOrcamento(request, response) {
+    async CriarServico(request, response) {
         const {
             ClienteId, 
             Descricao,
@@ -27,7 +27,7 @@ module.exports = {
             Status
          } = request.body;
  
-     const [Id] = await connection('Orcamento')
+     const [Id] = await connection('Servico')
         .insert({
             ClienteId, 
             Descricao,
@@ -40,10 +40,10 @@ module.exports = {
  
      return response.json({ Id });
     },
-    async DeletarOrcamento(request, response) {
+    async DeletarServico(request, response) {
         const { id } = request.params;
         
-        await connection('Orcamento').where('OrcamentoId', id).delete();
+        await connection('Servico').where('ServicoId', id).delete();
 
         return response.status(204).send();
     }
