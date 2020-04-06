@@ -7,22 +7,29 @@ export default StyleSheet.create({
         paddingHorizontal: 24,
         paddingTop: Constants.statusBarHeight + 20
     },
+
     header: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center'
     },
+
     headerText: {
+        marginTop: 10,
         fontSize: 15,
-        color: '#737380'
+        color: '#737380',
+        flexDirection: 'column',
+        alignItems: 'center'
     },
+
     headerTextBold: {
         fontWeight: 'bold'
     },
+
     title: {
         fontSize: 30,
         marginBottom: 16,
-        marginTop: 48,
+        marginTop: 35,
         color: '#13131a',
         fontWeight: 'bold'
     },
@@ -35,22 +42,26 @@ export default StyleSheet.create({
     orcamentoList: {
         marginTop: 32
     },
+
     orcamento: {
         padding: 24,
         borderRadius: 8,
         backgroundColor: "#FFF",
         marginBottom: 16
     },
+
     orcamentoProperty: {
         fontSize: 14,
         color: '#41414d'
     },
+
     orcamentoValue: {
         marginTop: 8,
         fontSize: 15,
         marginBottom: 24,
         color: "#737380"
     },
+
     detailsButton: {
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -59,5 +70,13 @@ export default StyleSheet.create({
     },
     detailsButtonText: {
         color: "#E02041"
-    } 
+    },
+
+    headerSlugNameProject: {
+        fontSize: 28,
+        marginBottom: 2,
+        marginTop: 2,
+        color: '#E02041',
+        fontWeight: 'bold'
+    }
 });

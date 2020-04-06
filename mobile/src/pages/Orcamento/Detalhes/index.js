@@ -3,7 +3,7 @@ import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { View, Image, Text, TouchableOpacity, Linking } from 'react-native';
 
-import logoImg from '../../../assets/logo.png';
+import logoImg from '../../../assets/SGM/logo.png';
 
 import styles from './styles';
 
@@ -21,11 +21,12 @@ export default function OrcamentoDetalhes() {
     return (
         <View style={styles.container}>
            <View style={styles.header}>
-              <Image source={logoImg} />
-              
-              <TouchableOpacity onPress={navigateBack}>
-                     <Feather name="arrow-left" size={28} color="#E82041" />
-              </TouchableOpacity>
+                <Image source={logoImg} />
+                    <Text style={styles.headerSlugNameProject}>Mecânica do Loquinho</Text>
+                        <TouchableOpacity onPress={navigateBack}>
+                            <Feather name="arrow-left" size={28} color="#E82041" />
+                        </TouchableOpacity>
+                    <Text style={styles.headerText}>Abaixo você pode escolher o que fazer com este item.</Text>
             </View>
 
             <View style={styles.orcamentoDetalhes}>
