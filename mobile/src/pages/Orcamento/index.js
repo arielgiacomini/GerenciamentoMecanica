@@ -1,5 +1,6 @@
 import React from 'react';
 import { Feather } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 import { View, Image, Text, TouchableOpacity, FlatList } from 'react-native';
 
 import logoImg from '../../assets/logo.png';
@@ -7,6 +8,12 @@ import logoImg from '../../assets/logo.png';
 import styles from './styles';
 
 export default function Orcamento() {
+    const navigation = useNavigation();
+
+    function navigateToDetail() {
+        navigation.navigate('OrcamentoDetalhes');
+    }
+
     return (
         <View style={styles.container}>
         <View style={styles.header}>
@@ -22,6 +29,7 @@ export default function Orcamento() {
                 data={[1, 2, 3, 4, 5, 6, 7]}
                 style={styles.orcamentoList}
                 keyExtractor={orcamento => String(orcamento)}
+                showsVerticalScrollIndicator={false}
                 renderItem={() => (
                     <View style={styles.orcamento}>
                     <Text style={styles.orcamentoProperty}>CLIENTE:</Text>
@@ -35,7 +43,7 @@ export default function Orcamento() {
 
                     <TouchableOpacity 
                             style={styles.detailsButton} 
-                            onPress={() => {}}
+                            onPress={navigateToDetail}
                     >
                         <Text style={styles.detailsButtonText}>Ver mais detalhes</Text>
                          <Feather name="arrow-right" size={16} color="#E02041" />
