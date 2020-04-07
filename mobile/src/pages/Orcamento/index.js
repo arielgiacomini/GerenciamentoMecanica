@@ -3,7 +3,7 @@ import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { View, Image, Text, TouchableOpacity, FlatList } from 'react-native';
 
-import logoImg from '../../assets/logo.png';
+import logoImg from '../../assets/SGM/logo.png';
 
 import styles from './styles';
 
@@ -18,10 +18,12 @@ export default function Orcamento() {
         <View style={styles.container}>
         <View style={styles.header}>
             <Image source={logoImg} />
-            <Text style={styles.headerText}>
-                Total de <Text style={styles.headerTextBold}>0 orçamentos gerdos hoje.</Text>
-            </Text>
+            <Text style={styles.headerSlugNameProject}>Mecânica do Loquinho</Text>
         </View>
+            <Text style={styles.headerText}>
+                Total de <Text style={styles.headerTextBold}>0</Text> orçamentos gerdos hoje.
+            </Text>
+            
             <Text style={styles.title}>Bem-Vindo!</Text>
             <Text style={styles.subTitle}>Aqui você pode gerar um orçamento ou um serviço para seu cliente.</Text>
 

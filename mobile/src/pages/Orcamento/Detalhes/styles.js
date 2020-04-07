@@ -13,6 +13,15 @@ export default StyleSheet.create({
         alignItems: 'center',
     },
 
+    headerText: {
+        marginTop: 10,
+        fontSize: 15,
+        color: '#737380',
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+
     orcamentoDetalhes: {
         padding: 24,
         borderRadius: 8,
@@ -86,5 +95,13 @@ export default StyleSheet.create({
         width: '70%',
         justifyContent: 'center',
         alignItems: 'center'
+    },
+
+    headerSlugNameProject: {
+        fontSize: 22,
+        marginBottom: 2,
+        marginTop: 2,
+        color: '#E02041',
+        fontWeight: 'bold'
     }
 });
