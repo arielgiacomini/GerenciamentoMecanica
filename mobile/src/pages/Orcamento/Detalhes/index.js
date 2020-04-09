@@ -1,6 +1,6 @@
 import React from 'react';
 import { Feather } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { View, Image, Text, TouchableOpacity, Linking } from 'react-native';
 
 import logoImg from '../../../assets/SGM/logo.png';
@@ -9,13 +9,17 @@ import styles from './styles';
 
 export default function OrcamentoDetalhes() {
     const navigation = useNavigation();
+    const route = useRoute();
+
+    const orcamento = route.params.orcamento;
+    const mensagemWhatsApp = `Olá, ${orcamento.Descricao}, você fez um orçamento conosco no valor de: ${Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(orcamento.ValorTotal)}`;
 
     function navigateBack() {
         navigation.goBack();
     }
-
+ 
     function sendWhatsAppCliente() {
-        Linking.openURL("whatsapp://send?phone=5511982505422?text=Teste");
+        Linking.openURL(`whatsapp://send?phone=5511982505422&text=${mensagemWhatsApp}`);
     }
 
     return (
@@ -30,14 +34,14 @@ export default function OrcamentoDetalhes() {
             </View>
 
             <View style={styles.orcamentoDetalhes}>
-                <Text style={[styles.orcamentoProperty, { marginTop: 0 }]}>CLIENTE:</Text>
-                <Text style={styles.orcamentoValue}>Ariel Giacomini</Text>
+                    <Text style={[styles.orcamentoProperty, { marginTop: 0 }]}>Nº:</Text>
+                    <Text style={styles.orcamentoValue}>{orcamento.OrcamentoId}</Text>
 
-                <Text style={styles.orcamentoProperty}>ORCAMENTO:</Text>
-                <Text style={styles.orcamentoValue}>137827482</Text>
+                    <Text style={styles.orcamentoProperty}>Cliente:</Text>
+                    <Text style={styles.orcamentoValue}>{orcamento.Descricao}</Text>
 
-                <Text style={styles.orcamentoProperty}>VALOR TOTAL:</Text>
-                <Text style={styles.orcamentoValue}>R$ 129,89</Text>
+                    <Text style={styles.orcamentoProperty}>VALOR TOTAL:</Text>
+                    <Text style={styles.orcamentoValue}>{Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(orcamento.ValorTotal)}</Text>
             </View>
 
             <View style={styles.gerarServico}>
