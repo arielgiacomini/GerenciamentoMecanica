@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Feather } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { View, Image, Text, TouchableOpacity, FlatList } from 'react-native';
 
 import api from '../../services/api';
@@ -11,7 +11,10 @@ import styles from './styles';
 
 export default function Orcamento() {
     const [orcamentos, setOrcamentos] = useState([]);
-    const [totalOrcamentos, setTotalOrcamentos] = useState([]);
+    const [totalOrcamentos, setTotalOrcamentos] = useState(0);
+    const [page, setPage] = useState(1);
+    const [loading, setLoading] = useState(false);
+
     const navigation = useNavigation();
 
     function navigateToDetail(orcamento) {
@@ -19,10 +22,23 @@ export default function Orcamento() {
     }
 
     async function loadOrcamentos() {
-        const response = await api.get('orcamento');
+        if (loading) {
+            return;
+        }
 
-        setOrcamentos(response.data);
+        if (totalOrcamentos > 0 && orcamentos.length == totalOrcamentos) {
+            return;
+        }
+
+        setLoading(true);
+
+        const response = await api.get('orcamento', {
+            params: { page }
+        });
+        setOrcamentos([... orcamentos, ... response.data]); // Anexando dois vetores dentro de um único vetor.
         setTotalOrcamentos(response.headers['x-total-count']);
+        setPage(page + 1)
+        setLoading(false);
     }
 
     useEffect(() => {
@@ -47,6 +63,8 @@ export default function Orcamento() {
                 style={styles.orcamentoList}
                 keyExtractor={orcamentos => String(orcamentos.Id)}
                 showsVerticalScrollIndicator={false}
+                onEndReached={loadOrcamentos}
+                onEndReachedThreshold={0.2}
                 renderItem={({ item: orcamento }) => (
                     <View style={styles.orcamento}>
 
