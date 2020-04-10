@@ -1,4 +1,5 @@
 import React from 'react';
+import { ScrollView } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { View, Image, Text, TouchableOpacity, Linking } from 'react-native';
@@ -12,7 +13,7 @@ export default function OrcamentoDetalhes() {
     const route = useRoute();
 
     const orcamento = route.params.orcamento;
-    const mensagemWhatsApp = `Olá, ${orcamento.Descricao}, você fez um orçamento conosco no valor de: ${Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(orcamento.ValorTotal)}`;
+    const mensagemWhatsApp = `Olá, ${orcamento.NomeCliente}, você fez um orçamento conosco no valor de: ${Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(orcamento.ValorTotal)}`;
 
     function navigateBack() {
         navigation.goBack();
@@ -23,24 +24,32 @@ export default function OrcamentoDetalhes() {
     }
 
     return (
+        
         <View style={styles.container}>
            <View style={styles.header}>
                 <Image source={logoImg} />
-                    <Text style={styles.headerSlugNameProject}>Mecânica do Loquinho</Text>
-                        <TouchableOpacity onPress={navigateBack}>
-                            <Feather name="arrow-left" size={28} color="#E82041" />
-                        </TouchableOpacity>
-                    <Text style={styles.headerText}>Abaixo você pode escolher o que fazer com este item.</Text>
+                        <View style={styles.actionBack}>
+                            <TouchableOpacity onPress={navigateBack}>
+                                <Feather name="arrow-left" size={28} color="#E82041" />
+                            </TouchableOpacity>
+                        </View>
             </View>
-
+                <Text style={styles.headerText}>Abaixo você pode escolher o que fazer com este item.</Text>
+            <ScrollView showsVerticalScrollIndicator={false}>
             <View style={styles.orcamentoDetalhes}>
-                    <Text style={[styles.orcamentoProperty, { marginTop: 0 }]}>Nº:</Text>
+                    <Text style={[styles.orcamentoProperty, { marginTop: 0 }]}>Nº</Text>
                     <Text style={styles.orcamentoValue}>{orcamento.OrcamentoId}</Text>
 
-                    <Text style={styles.orcamentoProperty}>Cliente:</Text>
-                    <Text style={styles.orcamentoValue}>{orcamento.Descricao}</Text>
+                    <Text style={styles.orcamentoProperty}>Cliente</Text>
+                    <Text style={styles.orcamentoValue}>{orcamento.NomeCliente}</Text>
 
-                    <Text style={styles.orcamentoProperty}>VALOR TOTAL:</Text>
+                    <Text style={styles.orcamentoProperty}>Valor Adicional</Text>
+                    <Text style={styles.orcamentoValue}>{Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(orcamento.ValorAdicional)}</Text>
+
+                    <Text style={styles.orcamentoProperty}>Desconto</Text>
+                    <Text style={[styles.orcamentoValue, { marginBottom: 0 }]}>{Intl.NumberFormat('pt-BR', {style: 'percent', maximumFractionDigits: 2}).format(orcamento.ValorDesconto)}</Text>
+                    <Text style={styles.orcamentoValue}>{Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(orcamento.ValorDesconto)}</Text>
+                    <Text style={styles.orcamentoProperty}>Valor Total</Text>
                     <Text style={styles.orcamentoValue}>{Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(orcamento.ValorTotal)}</Text>
             </View>
 
@@ -61,6 +70,8 @@ export default function OrcamentoDetalhes() {
                 </TouchableOpacity>
                 </View>
             </View>
+            </ScrollView>
         </View>
+
     );
 }

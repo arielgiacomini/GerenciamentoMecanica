@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Feather } from '@expo/vector-icons';
-import { useNavigation, useRoute } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import { View, Image, Text, TouchableOpacity, FlatList } from 'react-native';
 
 import api from '../../services/api';
@@ -49,7 +49,6 @@ export default function Orcamento() {
         <View style={styles.container}>
         <View style={styles.header}>
             <Image source={logoImg} />
-            <Text style={styles.headerSlugNameProject}>Mecânica do Loquinho</Text>
         </View>
             <Text style={styles.headerText}>
                 Total de <Text style={styles.headerTextBold}>{totalOrcamentos}</Text> orçamentos gerdos hoje.
@@ -68,13 +67,10 @@ export default function Orcamento() {
                 renderItem={({ item: orcamento }) => (
                     <View style={styles.orcamento}>
 
-                    <Text style={styles.orcamentoProperty}>Nº:</Text>
-                    <Text style={styles.orcamentoValue}>{orcamento.OrcamentoId}</Text>
+                    <Text style={styles.orcamentoProperty}>Cliente</Text>
+                    <Text style={styles.orcamentoValue}>{orcamento.NomeCliente}</Text>
 
-                    <Text style={styles.orcamentoProperty}>Cliente:</Text>
-                    <Text style={styles.orcamentoValue}>{orcamento.Descricao}</Text>
-
-                    <Text style={styles.orcamentoProperty}>VALOR TOTAL:</Text>
+                    <Text style={styles.orcamentoProperty}>Valor Total</Text>
                     <Text style={styles.orcamentoValue}>{Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(orcamento.ValorTotal)}</Text>
 
                     <TouchableOpacity 

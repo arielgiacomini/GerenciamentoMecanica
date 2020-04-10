@@ -17,9 +17,15 @@ export default StyleSheet.create({
         marginTop: 10,
         fontSize: 15,
         color: '#737380',
-        justifyContent: 'space-between',
+        justifyContent: 'space-evenly',
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginBottom: 0
+    },
+
+    actionBack: {
+        flexDirection: 'column',
+        justifyContent: 'space-between'
     },
 
     orcamentoDetalhes: {
@@ -27,7 +33,7 @@ export default StyleSheet.create({
         borderRadius: 8,
         backgroundColor: "#FFF",
         marginBottom: 16,
-        marginTop: 48,
+        marginTop: 15,
     },
 
     orcamentoProperty: {
@@ -101,7 +107,7 @@ export default StyleSheet.create({
         fontSize: 22,
         marginBottom: 2,
         marginTop: 2,
-        color: '#E02041',
+        color: '#000000',
         fontWeight: 'bold'
     }
 });
