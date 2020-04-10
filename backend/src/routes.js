@@ -32,7 +32,8 @@ routes.get('/mao-de-obra', MaodeObraController.GetMaodeObraForAll);
 routes.post('/mao-de-obra', MaodeObraController.CriarMaodeObra);
 routes.delete('/mao-de-obra/:id', MaodeObraController.DeletarMaodeObra);
 
-routes.get('/orcamento', OrcamentoController.GetOrcamentoForAll);
+//routes.get('/orcamento', OrcamentoController.GetOrcamentoForAll);
+routes.get('/orcamento', OrcamentoController.GetOrcamentoInformacoesDetalhadaDoCliente);
 routes.post('/orcamento', OrcamentoController.CriarOrcamento);
 routes.delete('/orcamento/:id', OrcamentoController.DeletarOrcamento);
 
