@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect }  from 'react';
 import { ScrollView } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { View, Image, Text, TouchableOpacity, Linking } from 'react-native';
+
+import api from '../../../services/api';
 
 import logoImg from '../../../assets/SGM/logo.png';
 
@@ -13,15 +15,26 @@ export default function OrcamentoDetalhes() {
     const route = useRoute();
 
     const orcamento = route.params.orcamento;
-    const mensagemWhatsApp = `Olá, ${orcamento.NomeCliente}, você fez um orçamento conosco no valor de: ${Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(orcamento.ValorTotal)}`;
+    const mensagemWhatsApp = `Olá ${orcamento.NomeCliente}, sou seu Mecânico *Ivo Loquinho - Reparação Automotiva*, você fez um orçamento conosco no valor de: ${Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(orcamento.ValorTotal)}`;
 
     function navigateBack() {
         navigation.goBack();
     }
+
+    function navigateToOrcamento() {
+        navigation.navigate('Orcamento');
+    } 
  
     function sendWhatsAppCliente() {
-        Linking.openURL(`whatsapp://send?phone=5511982505422&text=${mensagemWhatsApp}`);
+        Linking.openURL(`whatsapp://send?phone=55${orcamento.TelefoneCelular}&text=${mensagemWhatsApp}`);
     }
+    
+    function excluirOcamento(orcamentoId) {
+        
+        api.delete(`orcamento/${orcamentoId}`);
+        
+        navigateBack();
+    }    
 
     return (
         
@@ -47,8 +60,9 @@ export default function OrcamentoDetalhes() {
                     <Text style={styles.orcamentoValue}>{Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(orcamento.ValorAdicional)}</Text>
 
                     <Text style={styles.orcamentoProperty}>Desconto</Text>
-                    <Text style={[styles.orcamentoValue, { marginBottom: 0 }]}>{Intl.NumberFormat('pt-BR', {style: 'percent', maximumFractionDigits: 2}).format(orcamento.ValorDesconto)}</Text>
+                    <Text style={[styles.orcamentoValue, { marginBottom: 0 }]}>{orcamento.ValorDesconto}%</Text>
                     <Text style={styles.orcamentoValue}>{Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(orcamento.ValorDesconto)}</Text>
+                    
                     <Text style={styles.orcamentoProperty}>Valor Total</Text>
                     <Text style={styles.orcamentoValue}>{Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(orcamento.ValorTotal)}</Text>
             </View>
@@ -60,7 +74,7 @@ export default function OrcamentoDetalhes() {
                 <TouchableOpacity style={styles.action} onPress={() => {}}>
                     <Text style={styles.actionText}>Gerar Serviço</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.action} onPress={() => {}}>
+                <TouchableOpacity style={styles.action} onPress={() => {excluirOcamento(orcamento.OrcamentoId)}}>
                     <Text style={styles.actionText}>Excluir Orçamento</Text>
                 </TouchableOpacity>
                 </View>

@@ -75,9 +75,7 @@ module.exports = {
         .orderBy('Orcamento.DataCadastro', 'desc')
 
         const now = Date.now();
-        const [contagem] = await connection('Orcamento').where({
-            DataCadastro: now
-        }).count();
+        const [contagem] = await connection('Orcamento').count();
 
         response.header('X-Total-Count', contagem['count(*)']);
                 
