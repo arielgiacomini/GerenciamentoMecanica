@@ -35,9 +35,7 @@ module.exports = {
             LogradouroMunicipio,
             LogradouroBairro,
             LogradouroUF,
-            RecebeNotificacoes,
-            ClienteAtivo,
-            DataCadastro
+            RecebeNotificacoes
          } = request.body;
  
      await connection('Cliente')
@@ -59,12 +57,10 @@ module.exports = {
         LogradouroMunicipio,
         LogradouroBairro,
         LogradouroUF,
-        RecebeNotificacoes,
-        ClienteAtivo,
-        DataCadastro
+        RecebeNotificacoes
      })
  
-     return response.json({ preferenciaNome });
+     return response.json({ NomeCliente });
     },
     async DeletarCliente(request, response) {
         const { id } = request.params;

@@ -10,6 +10,7 @@ import logoImg from '../../assets/SGM/logo.png';
 import styles from './styles';
 
 export default function Orcamento() {
+
     const [orcamentos, setOrcamentos] = useState([]);
     const [totalOrcamentos, setTotalOrcamentos] = useState(0);
     const [page, setPage] = useState(1);
@@ -22,6 +23,7 @@ export default function Orcamento() {
     }
 
     async function loadOrcamentos() {
+        console.log("C");
         if (loading) {
             return;
         }
@@ -35,6 +37,7 @@ export default function Orcamento() {
         const response = await api.get('orcamento', {
             params: { page }
         });
+
         setOrcamentos([... orcamentos, ... response.data]); // Anexando dois vetores dentro de um único vetor.
         setTotalOrcamentos(response.headers['x-total-count']);
         setPage(page + 1)
@@ -42,6 +45,7 @@ export default function Orcamento() {
     }
 
     useEffect(() => {
+        console.log("D");
         loadOrcamentos();
     }, []);
 
@@ -51,7 +55,7 @@ export default function Orcamento() {
             <Image source={logoImg} />
         </View>
             <Text style={styles.headerText}>
-                Total de <Text style={styles.headerTextBold}>{totalOrcamentos}</Text> orçamentos gerdos hoje.
+                Total de <Text style={styles.headerTextBold}>{totalOrcamentos}</Text> orçamentos.
             </Text>
             
             <Text style={styles.title}>Bem-Vindo!</Text>
@@ -60,9 +64,9 @@ export default function Orcamento() {
             <FlatList
                 data={orcamentos}
                 style={styles.orcamentoList}
-                keyExtractor={orcamentos => String(orcamentos.Id)}
+                keyExtractor={orcamentos => String(orcamentos.OrcamentoId)}
                 showsVerticalScrollIndicator={false}
-                onEndReached={loadOrcamentos}
+                onEndReached={() => loadOrcamentos()}
                 onEndReachedThreshold={0.2}
                 renderItem={({ item: orcamento }) => (
                     <View style={styles.orcamento}>
