@@ -23,7 +23,7 @@ export default function Orcamento() {
     }
 
     async function loadOrcamentos() {
-        console.log("C");
+        console.log("Entrou no LoadOrcamentos");
         if (loading) {
             return;
         }
@@ -45,7 +45,7 @@ export default function Orcamento() {
     }
 
     useEffect(() => {
-        console.log("D");
+        console.log("Entrou no useEffect");
         loadOrcamentos();
     }, []);
 
@@ -53,6 +53,9 @@ export default function Orcamento() {
         <View style={styles.container}>
         <View style={styles.header}>
             <Image source={logoImg} />
+            <TouchableOpacity style={styles.actionRefresh} onPress={() => {} }>
+                <Text style={styles.actionText}>Refresh Page</Text>
+            </TouchableOpacity>
         </View>
             <Text style={styles.headerText}>
                 Total de <Text style={styles.headerTextBold}>{totalOrcamentos}</Text> orçamentos.

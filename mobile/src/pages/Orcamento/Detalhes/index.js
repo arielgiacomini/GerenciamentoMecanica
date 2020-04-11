@@ -33,7 +33,8 @@ export default function OrcamentoDetalhes() {
         
         api.delete(`orcamento/${orcamentoId}`);
         
-        navigateBack();
+        navigateToOrcamento();
+        
     }    
 
     return (
