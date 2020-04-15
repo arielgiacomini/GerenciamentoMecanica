@@ -1,0 +1,11 @@
+CREATE TABLE ClienteVeiculo (
+	ClienteVeiculoId	INTEGER NOT NULL PRIMARY KEY IDENTITY(1,1),
+	ClienteId	INTEGER,
+	VeiculoId	INTEGER,
+	AnoVeiculo	INTEGER NOT NULL DEFAULT 0,
+	PlacaVeiculo	VARCHAR ( 10 ) NOT NULL DEFAULT '',
+	CorVeiculo	VARCHAR ( 200 ) NOT NULL DEFAULT '',
+	KmRodados	FLOAT NOT NULL DEFAULT 0,
+	FOREIGN KEY(VeiculoId) REFERENCES Veiculo(VeiculoId),
+	FOREIGN KEY(ClienteId) REFERENCES Cliente(ClienteId)
+)
