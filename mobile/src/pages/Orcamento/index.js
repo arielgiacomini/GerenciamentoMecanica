@@ -34,7 +34,7 @@ export default function Orcamento() {
 
         setLoading(true);
 
-        const response = await api.get('orcamento', {
+        const response = await api.get('orcamento/paginado', {
             params: { page }
         });
 
