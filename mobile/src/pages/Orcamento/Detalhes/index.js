@@ -29,13 +29,13 @@ export default function OrcamentoDetalhes() {
         Linking.openURL(`whatsapp://send?phone=55${orcamento.TelefoneCelular}&text=${mensagemWhatsApp}`);
     }
     
-    function excluirOcamento(orcamentoId) {
+    // function excluirOcamento(orcamentoId) {
         
-        api.delete(`orcamento/${orcamentoId}`);
+    //     api.delete(`orcamento/${orcamentoId}`);
         
-        navigateToOrcamento();
+    //     navigateToOrcamento();
         
-    }    
+    // }    
 
     return (
         
